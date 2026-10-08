@@ -112,6 +112,34 @@ console.log("手动赋空值:", b);              // null（开发者主动表示
 console.log("null == undefined ?", null == undefined); // true（值都近似"空"）
 console.log("null === undefined ?", null === undefined); // false（类型不同）
 
+/*
+  ┌─────────────────────────────────────────────────────────┐
+  │ == 和 === 的区别                                         │
+  ├─────────────────────────────────────────────────────────┤
+  │ ==   宽松相等（Loose Equality）                           │
+  │      比较前会先「自动转换类型」，再比值。                      │
+  │      类型不同时，尽量转成同一类型再比较。                     │
+  │                                                         │
+  │ ===  严格相等（Strict Equality）                          │
+  │      不转换类型，必须「类型相同 且 值相同」才为 true。         │
+  │                                                         │
+  │ 规则记忆：== 只比值（先转型），=== 既比值又比类型。             │
+  └─────────────────────────────────────────────────────────┘
+*/
+
+console.log("'1' == 1 ?", "1" == 1);   // true  —— "1" 被转成数字 1
+console.log("'1' === 1 ?", "1" === 1); // false —— string 和 number 类型不同
+console.log("0 == false ?", 0 == false);   // true  —— false 被转成 0
+console.log("0 === false ?", 0 === false); // false —— 类型不同
+console.log("null == undefined ?", null == undefined); // true（== 下这两个特殊相等）
+console.log("null === undefined ?", null === undefined); // false（类型不同）
+
+/*
+  注意：=== 不会做任何类型转换，所以更安全、结果更可预测。
+  最佳实践：日常永远用 ===，避免 == 的隐式转换带来的意外。
+  唯一常见的例外：用 x == null 同时判断 null 和 undefined。
+*/
+
 
 // ----------------------------------------
 // 5. 原始类型 vs 引用类型的核心区别
