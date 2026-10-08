@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello JavaScript</title>
+</head>
+<body>
+  <h1>我的第一个 JavaScript 程序</h1>
+  <p>打开浏览器控制台（F12）查看输出</p>
+  <button id="btn">点我</button>
+
+  <script>
+    // 1. 控制台输出 Hello World
+    console.log("Hello, World!");
+
+    // 2. 页面弹出提示框
+    // alert("Hello, World!");
+
+    // 3. 在页面上写入内容
+    document.write("<p>Hello, World! —— 来自 document.write</p>");
+
+    // 4. 点击按钮时修改页面内容
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", function () {
+      document.querySelector("h1").textContent = "Hello, World!";
+      console.log("按钮被点击了，标题已修改");
+    });
+  </script>
+</body>
+</html>
